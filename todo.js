@@ -128,6 +128,7 @@ function paintDone(text){
     switchBtn.innerHTML = "🔄";
     switchBtn.addEventListener("click", handleSwitch); 
     span.innerText = text;
+    span.style.textDecorationLine = "line-through";
     li.appendChild(span);
     li.appendChild(deleteBtn);
     li.appendChild(switchBtn);

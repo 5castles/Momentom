@@ -6,28 +6,44 @@
     <link rel="stylesheet" href="stlye.css">
 </head>
 <body>
+    <header>
+        <div class="js-clock">
+            <h1 id="time">00:00</h1>
+        </div>
+        <form class="js-form form">
+            <input type="text" placeholder="What is your name?">
+        </form>
+        
+        <h2 id="hello-text" class="js-greeting greeting"></h2>
+    </header>
+    <section>
+        <form class="js-todoForm">
+            <input type="text" placeholder="Something on your mind?">
+        </form>
+        <div class="list-box">
+            <div>
+                <h2 class="list-category">To-Do-List <i class="fas fa-clipboard-list"></i></h2>
+                <ul class="js-todoList"></ul>
+            </div>
+            <div>
+                <h2 class="list-category">Done-List <i class="fas fa-clipboard-check"></i></h2>
+                <ul class="js-doneList"></ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="js-weather"></span>
+    </footer>
+
     <div id="background-opacity"></div>
-    <div class="js-clock">
-        <h1 id="title" >00:00</h1>
-    </div>
-    <form class="js-form form">
-        <input type="text" placeholder="What is your name?">
-    </form>
-    <h2 class="js-greeting greeting"></h2>
-
-    <form class="js-todoForm">
-        <input type="text" placeholder="Write a to-do list">
-    </form>
-    <h2>To-Do-List</h2>
-    <ul class="js-todoList"></ul>
-    <h2>Done-List</h2>
-    <ul class="js-doneList"></ul>
-    <span class="js-weather"></span>
-
+    
     <script src="clock.js"></script>
     <script src="localstorage.js"></script>
     <script src="todo.js"></script>
     <script src="background.js"></script>
     <script src="weather.js"></script>
+
+    <script src="https://kit.fontawesome.com/d1b355aa92.js" crossorigin="anonymous"></script>
 </body>
 </html>

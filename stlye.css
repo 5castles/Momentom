@@ -1,42 +1,119 @@
 body{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #95a5a6;
+    width:100%;
 }
-#background-opacity{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color:black;
-    opacity: 0.5;
-  
+header{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
 }
-h1, h2, span{
-    color: white;
+#time{
+    font-size: 130px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    color:rgba(255,255,255,0.8);
+}
+#hello-text{
+    font-size: 50px;
+    margin-top: 30px;
 }
 
-.showing{
-    display: block;
-}
 .form,
 .greeting{
     display: none;
 }
-
 .showing{
     display: block;
 }
 
-  @keyframes fadeIn {
+header form input{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 400px;
+    height: 50px;
+    background-color: rgba(255, 226, 2, 0.2);
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 20px;
+    border-style: none none solid none;
+    border-color:beige;
+} 
+
+section{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section form input{
+    width: 500px;
+    height: 50px;
+    background-color: rgba(255, 226, 2, 0.1);
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 20px;
+    border-style: none none solid none;
+    border-color:beige;
+    
+}
+
+.list-box{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 1500px;
+    margin-top: 10px;
+
+}
+.list-category{
+    display:inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    border-bottom: solid 1px rgba(255,255,255,0.8);
+}
+.js-todoList, 
+.js-doneList{
+    padding-left: 10px;
+}
+li{
+    list-style:none;
+    font-size: large;
+    margin-bottom: 10px;
+}
+
+::placeholder{
+    color:rgba(255,255,255,0.8);
+}
+
+h1, h2, span{
+    color:rgba(255,255,255,0.8);
+}
+
+.js-weather{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color:rgba(255,255,255,0.6);
+}
+
+
+@keyframes fadeIn {
     from {
         opacity: 0;
     } to {
         opacity: 1;
     }
 }
-
-
 
 .backgroundImg{
     position: absolute;
@@ -45,5 +122,17 @@ h1, h2, span{
     width: 100%;
     height: 100%;
     z-index: -2;
-    animation: fadeIn 1s linear;
+    animation: fadeIn 2s linear;
+}
+
+#background-opacity{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color:black;
+    opacity: 0.7;
+  
 }
