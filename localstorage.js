@@ -18,9 +18,24 @@ function handleSubmit(event){
 }
 
 function showGreeting(text){
+    const date = new Date();
+    const hours = date.getHours();
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `Hello! ${text}`;
+    if(hours >= 22 || hours <= 3){
+        greeting.innerText = `Good Night! ${text}.`;
+    } else if(hours > 3 && hours <= 6){
+        greeting.innerText = `Up this early? ${text}.`;
+    } else if(hours > 6 && hours < 12){
+        greeting.innerText = `Good Morning! ${text}.`;
+    } else if(hours >= 12 && hours <= 13){
+        greeting.innerText = `Time to eat! Enjoy your lunch! ${text}.`;
+    } else if(hours > 13 && hours < 18){
+        greeting.innerText = `How is it going ${text}?`;
+    } else{
+        greeting.innerText = `Have a good time! ${text}.`;
+    }
+    
 }
 
 function askForName(){

@@ -133,6 +133,63 @@ h1, h2, span{
     height: 100%;
     z-index: -1;
     background-color:black;
-    opacity: 0.7;
-  
+    opacity: 0.7; 
+}
+
+
+
+#calendar-zone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.js-calendar-area{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.js-calendar-area span{
+    font-size: 20px;
+}
+.js-calendar-box{
+    display:flex;
+    margin: 140px 30px 0px 30px;
+}
+.next-month-btn, .pre-month-btn{
+    margin-top: 140px;
+}
+.day-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5px;
+    width: 45px;
+}
+.day-column span{
+    margin-bottom: 3px;
+}
+.day, .month, .date{
+    display: inline-block;
+    margin-right: 7px;
+}
+
+
+.js-date-info-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    position: absolute;
+    bottom: 30px;
+    right:45.3%;
+}
+.js-date-info-box div{
+    display: flex;
+}
+
+.clicked{
+    text-decoration-line: underline;
+    color:red;
 }
