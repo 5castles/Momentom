@@ -179,10 +179,15 @@ function addEventListenerClickedUpdate(){
         //dataOnCal 마지막요소에 unidentified 있는데. 이것을 제외하지 않으면 아래에서 addEventListener 작동이 안된다. 
         //왜 unidentified가 마지막에 있는지 지금은 모르겠지만 일단 함수를 실행시키기 위해서 (.length-1)를 통해 마지막요소는 빼주었다.
         for(j=1; j<=dateOnCal.length -1; j++){ 
-            dateOnCal[j].addEventListener("click", clickedDateUpdate)        
+            dateOnCal[j].addEventListener("click", clickedDateUpdate)
+            dateOnCal[j].addEventListener("click", clickedDateUpdateLists)
         }
     }
 }
+function clickedDateUpdateLists(){
+    
+}
+
 //클릭 날짜 메인화면 표기 
 function clickedDateUpdate(event){
     const clicked = event.target;
