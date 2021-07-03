@@ -261,11 +261,10 @@ function moveToNextMonth(){
         month.innerText = monthObj[monthNum];
         year.innerText = yearOfNext;
         checkDay(yearOfNext, monthNum);
-    }
-    
-
+        
+    }  
+    firstDateColor(); 
 }
-
 function moveToPreviousMonth(){
     cleanCalendar();
     const yearNow = year.innerText;
@@ -303,6 +302,7 @@ function moveToPreviousMonth(){
 
         checkDay(yearOfPre, monthNum)
     }
+    firstDateColor();
 }
 
 function colorUpdate(anything){
@@ -326,6 +326,18 @@ function firstColor(){
             const makeDate = new Date();
             const dateNow = makeDate.getDate();
             if(parseInt(dateOnCal[j].innerText) === dateNow){
+                colorUpdate(dateOnCal[j]);
+            }
+        }
+    }
+}
+function firstDateColor(){
+    for(i=0; i<7; i++){
+        const dateOnCal = dayColumn[i].querySelectorAll("span")
+         //dataOnCal 마지막요소에 unidentified 있는데. 이것을 제외하지 않으면 아래에서 addEventListener 작동이 안된다. 
+        //왜 unidentified가 마지막에 있는지 지금은 모르겠지만 일단 함수를 실행시키기 위해서 (.length-1)를 통해 마지막요소는 빼주었다.
+        for(j=1; j<=dateOnCal.length -1; j++){ 
+            if(parseInt(dateOnCal[j].innerText) === 1){
                 colorUpdate(dateOnCal[j]);
             }
         }
