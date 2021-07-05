@@ -1,3 +1,5 @@
+@import "reset.css";
+
 body{
     display: flex; 
     flex-direction: column;
@@ -11,17 +13,18 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 100px;
 }
 #time{
     font-size: 130px;
+    font-weight: 500;
     margin-top: 30px;
     margin-bottom: 0px;
     color:rgba(255,255,255,0.8);
 }
 #hello-text{
     font-size: 50px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .form,
@@ -46,11 +49,13 @@ header form input{
     border-color:beige;
 } 
 
-section{
+section{    
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
+    width: 100%;
 }
 
 section form input{
@@ -70,25 +75,35 @@ section form input{
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    width: 1500px;
+    width: 100%;
     margin-top: 10px;
-
 }
+.list-box #todo-list-box,
+.list-box #done-list-box{
+    text-align: center;
+    width:33%;
+}
+
 .list-category{
     display:inline-block;
     padding-bottom: 10px;
     margin-bottom: 10px;
     font-size: 30px;
+    font-weight: 600;
     border-bottom: solid 1px rgba(255,255,255,0.8);
 }
 .js-todoList, 
 .js-doneList{
-    padding-left: 10px;
+    padding: 10px;
 }
 li{
     list-style:none;
     font-size: large;
     margin-bottom: 10px;
+}
+.js-todoList span, 
+.js-doneList span{
+    margin-right: 10px;
 }
 
 ::placeholder{
@@ -122,7 +137,7 @@ h1, h2, span{
     width: 100%;
     height: 100%;
     z-index: -2;
-    animation: fadeIn 1s linear;
+    animation: fadeIn 0.5s linear;
 }
 
 #background-opacity{
@@ -183,7 +198,7 @@ h1, h2, span{
     margin-top: 70px;
     position: absolute;
     bottom: 30px;
-    right:45.3%;
+    right:46.2%;
 }
 .js-date-info-box div{
     display: flex;
@@ -192,4 +207,7 @@ h1, h2, span{
 .clicked{
     text-decoration-line: underline;
     color:red;
+}
+button{
+    background-color: none;
 }
