@@ -1,6 +1,7 @@
 const form = document.querySelector(".js-form"),
     input = form.querySelector("input"),
-    greeting = document.querySelector(".js-greeting");
+    greeting = document.querySelector(".js-greeting"),
+    section = document.querySelector(".section");
     
 const SHOWING_CN = "showing",
     USER_LS = "currentUser";
@@ -21,6 +22,7 @@ function showGreeting(text){
     const date = new Date();
     const hours = date.getHours();
     form.classList.remove(SHOWING_CN);
+    section.classList.add(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
     if(hours >= 22 || hours <= 3){
         greeting.innerText = `Good Night! ${text}.`;
