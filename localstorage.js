@@ -25,17 +25,17 @@ function showGreeting(text){
     section.classList.add(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
     if(hours >= 22 || hours <= 3){
-        greeting.innerText = `Good Night! ${text}.`;
+        greeting.innerText = `Good night! ${text}.`;
     } else if(hours > 3 && hours <= 6){
-        greeting.innerText = `Up this early? ${text}.`;
+        greeting.innerText = `Up this early, ${text}?`;
     } else if(hours > 6 && hours < 12){
-        greeting.innerText = `Good Morning! ${text}.`;
+        greeting.innerText = `Good morning! ${text}.`;
     } else if(hours >= 12 && hours <= 13){
         greeting.innerText = `Time to eat! Enjoy your lunch! ${text}.`;
     } else if(hours > 13 && hours < 18){
         greeting.innerText = `How is it going ${text}?`;
     } else{
-        greeting.innerText = `Have a good time! ${text}.`;
+        greeting.innerText = `Good evening! ${text}.`;
     }
     
 }
