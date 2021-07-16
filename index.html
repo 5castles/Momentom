@@ -26,8 +26,6 @@
                 <ul class="js-todoList"></ul>
             </div>
 
-
-
             <div id="calendar-zone">
                                 
                 <div class="js-calendar-area">
@@ -72,7 +70,6 @@
                 </div>
             </div>
 
-
             <div id="done-list-box">
                 <h2 class="list-category">Done <i class="fas fa-clipboard-check"></i></h2>
                 <ul class="js-doneList"></ul>
@@ -80,7 +77,21 @@
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
+        <div class="addBtn-box">
+            <span>add <i class="fas fa-plus"></i></span>
+        </div>
+        
+        <form class="addToDoForOtherDay-box no-showing">
+            <span>원하는 날짜에 할 일을 등록해보세요.     <i class="fas fa-times"></i></span>
+            <input required type="date" >
+            <div>
+                <input required type="text" placeholder="Write your to-do for this day to add.">
+                <input type="submit" class="addToDoBtn" value="등록">
+            </div>
+            <span class="popUpText"></span>
+        </form>
+
         <span class="js-weather"></span>
     </footer>
 

@@ -8,8 +8,7 @@ const todayInfo = document.querySelector(".js-date-info-box"),
     dayColumn = calendarBox.getElementsByClassName("day-column"),
     previousMonth = calendarArea.querySelector(".pre-month-btn"),
     nextMonth = calendarArea.querySelector(".next-month-btn");
-
-
+    
 const dayObj = {
     0: "SUN",
     1: "MON",
@@ -343,6 +342,7 @@ function firstDateColor(){
         }
     }
 }
+
 function init1(){
     getTodayInfo();
     firstColor();
@@ -363,12 +363,18 @@ const  toDoForm = document.querySelector(".js-todoForm"),
 const dateInfo = document.querySelector(".date");
 const monthInfo = document.querySelector(".month");
 const yearInfo = document.querySelector(".year");
+const addForSpecificDateForm = document.querySelector(".addToDoForOtherDay-box");
+const addBtn = document.querySelector(".addBtn-box");
+const addCloseBtn = addForSpecificDateForm.querySelector("span i");
+const addPopUpText = addForSpecificDateForm.querySelector(".popUpText");
+
 
 const TODO_THING = "PENDING";
 const DONE = "FINISHED";
 
 let ToDos = [];
 let Done = [];
+let AddingToDos = [];
 
 function save(title, text){
     localStorage.setItem(title, text);
@@ -475,13 +481,6 @@ function paintToDo(text, dateData){
     }
     ToDos.push(ToDoObj);
     save(`${dateData}${TODO_THING}`, JSON.stringify(ToDos));
-    
-    /*
-    while(ToDos.length != 0){
-        ToDos.pop();
-    }
-    */
-    
     //로컬 스토리지로 저장하는것 까지 완료.    -> 새로고침 시 로컬 + 지우기.
 }
 function loadPaintToDo(text, dateData){
@@ -565,8 +564,6 @@ function loadPaintDone(text, dateData){
     //로컬 스토리지로 저장하는것 까지 완료.    -> 새로고침 시 로컬 + 지우기.
 }
 
-
-
 function toDoHandleSubmit(event){
     event.preventDefault();
     const thingToDo = toDoInput.value;
@@ -579,6 +576,9 @@ function loadToDo(){
     //리스트 클린 리셋하고나서
     while(ToDos.length != 0){
         ToDos.pop();
+    }
+    while(AddingToDos.length != 0){
+        AddingToDos.pop();
     }
     const loadedToDos = localStorage.getItem(`${date.innerText}${month.innerText}${year.innerText}${TODO_THING}`);
     // JSON.stringify 한 것을 다시 parse 해준 뒤, refresh 했을때 로컬스토리지에 있는 값은 화면에 리스트를 유지하도록 만든다.
@@ -605,10 +605,71 @@ function loadDone(){
     }
 }
 
+function handleSubmitForAddingToDoForOtherDay(event){
+    event.preventDefault();
+    const addForm = event.target;
+    console.log(addForm)
+    const dateForAdding = addForm.querySelector("input");
+    const addInput = addForm.querySelector("div input:first-child");
+    const addInputValue = addInput.value;
+
+    //input type="date" 값 나눠서 로컬스토리지 날짜정보 순서에 맞게 조합
+    const yearForAdding = dateForAdding.value.slice(0, 4);
+    const monthNumForAdding = dateForAdding.value.slice(6, 7);
+    const dateNumForAdding = dateForAdding.value.slice(8, 10);
+    const addingDateInformation = `${parseInt(dateNumForAdding)}${monthObj[parseInt(monthNumForAdding)-1]}${yearForAdding}`;
+    const currentDate =`${date.innerText}${month.innerText}${year.innerText}` 
+    const newId = AddingToDos.length +1;
+    const addingToDoObj={
+        text: addInputValue,
+        id: newId,
+        date: addingDateInformation
+    }
+    AddingToDos.push(addingToDoObj);
+    const existedLocal = localStorage.getItem(`${addingDateInformation}${TODO_THING}`);
+
+    if(existedLocal !== null && currentDate === addingDateInformation){
+        paintToDo(addingToDoObj.text, addingToDoObj.date);
+    } else if(existedLocal === null && currentDate === addingDateInformation){
+        paintToDo(addingToDoObj.text, addingToDoObj.date);
+    } else if(existedLocal !== null && currentDate !== addingDateInformation){
+        const parsedExistedLocal = JSON.parse(existedLocal);
+        parsedExistedLocal.push(addingToDoObj);
+        for(i=0; i < parsedExistedLocal.length; i++){
+            parsedExistedLocal[i].id = i+1;
+        } 
+        save(`${addingDateInformation}${TODO_THING}`, JSON.stringify(parsedExistedLocal));
+    } else{
+        save(`${addingDateInformation}${TODO_THING}`, JSON.stringify(AddingToDos))
+        AddingToDos.pop();
+    }
+
+    addPopUpText.animate([ { opacity: 0, color: "#FFFFFF"},
+        { opacity: .8, color: "#FFFFFF"},
+        { opacity: 0, color: "#FFFFFF"} ],
+      1500);
+    addPopUpText.innerText =`completed to add it on ${addingDateInformation}!`;
+    addInput.value = "";
+}
+
+
+function handleClickAddBtn(){
+    addBtn.classList.add("no-showing");
+    addForSpecificDateForm.classList.remove("no-showing");
+}
+
+function handleClickCloseAddBox(){
+    addBtn.classList.remove("no-showing");
+    addForSpecificDateForm.classList.add("no-showing");
+}
+
 function init2(){
     loadToDo();
     loadDone();
     toDoForm.addEventListener("submit", toDoHandleSubmit);
+    addForSpecificDateForm.addEventListener("submit", handleSubmitForAddingToDoForOtherDay);
+    addBtn.addEventListener("click", handleClickAddBtn);
+    addCloseBtn.addEventListener("click", handleClickCloseAddBox);
 }
 
 init2();
