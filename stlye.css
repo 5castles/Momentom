@@ -7,6 +7,32 @@
         opacity: 1;
     }
 }
+@keyframes fadeInAndOut {
+    0% {
+        opacity: 0;
+    } 50% {
+        opacity: 1;
+    } 100%{
+        opacity: 0;
+    }
+}
+@keyframes fadeInAddBtn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: .8;
+    }
+}
+@keyframes slidein {
+    from {
+      bottom: 0px;
+      opacity: 0;
+    }
+    to {
+      bottom: 50px;
+      opacity: .8;
+    }
+}
 body{
     display: flex; 
     flex-direction: column;
@@ -37,11 +63,9 @@ header{
 }
 .form,
 .greeting,
-.section{
+.section,
+.footer{
     display: none;
-}
-.showing{
-    display: flex;
 }
 header form input{
     margin-top: 130px;
@@ -54,8 +78,9 @@ header form input{
     font-weight: 500;
     text-align: center;
     border: none;
-    border-bottom: 2px solid beige;
+    border-bottom: 1px solid beige;
     padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 } 
 section{    
     display:flex;
@@ -74,10 +99,10 @@ section form input{
     font-size: 16px;
     text-align: center;
     border-radius: 20px;
-    border-style: none none solid none;
-    border-color:beige;
+    border: none;
+    border-bottom: 1px solid beige;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-
 .list-box{
     display: flex;
     justify-content: space-between;
@@ -126,11 +151,81 @@ h1, h2, span{
 }
 .js-weather{
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 20px;
     color:rgba(255,255,255,0.6);
 }
 
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.addToDoForOtherDay-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    padding: 20px 0;
+    margin-right: 20px;
+    background-color: #226666;
+    opacity: .8;
+    border-radius: 50px 50px 0 50px;
+    color:black;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: absolute;
+    bottom: 50px;
+    animation: slidein .3s linear;
+    
+}
+.addToDoForOtherDay-box span:first-child{
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-style: bold;
+}
+.addToDoForOtherDay-box span i{
+    position: relative;
+    left: 40px;
+    cursor: pointer;
+}
+.addToDoForOtherDay-box input{
+    padding: 0 10px;
+    width: max-content;
+    margin-top: 5px;
+    height: 40px;
+    color:black;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.addToDoForOtherDay-box div{
+    display: flex;
+    justify-content: center;
+    width:100%;
+}
+.addToDoForOtherDay-box div input:first-child{
+    position:relative;
+    left: 16px;
+    width: 65%;
+}
+.addToDoForOtherDay-box div input:last-child{
+    position: relative;
+    left: 20px;
+}
+.addToDoForOtherDay-box input.addToDoBtn{
+    padding: 0 10px;
+    width: min-content;
+    height: 40px;
+    color:black;
+    font-size: 16px;
+    text-align: center;
+    border-style: none none solid none;
+    border-color:beige;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
 
 .backgroundImg{
     position: absolute;
@@ -205,4 +300,37 @@ h1, h2, span{
 .clicked{
     text-decoration-line: underline;
     color:red;
+}
+.addBtn-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    right: px;
+    width: max-content;
+    padding: 15px 60px;
+    margin-right: 20px;
+    background-color: #226666;
+    opacity: .8;
+    border-radius: 40px 40px 0 40px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    font-size: x-large;
+    cursor: pointer;
+    animation: fadeInAddBtn .3s linear;
+}
+
+.showing{
+    display: flex;
+}
+.no-showing{
+    display: none;
+}
+.popUpText{
+    color:#226666;
+    opacity: .8;
+    margin-top: 15px;
+}
+.anim-fadeInAndOut{
+    animation: fadeInAndOut 2s linear;
 }
