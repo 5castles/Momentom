@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 const img = document.createElement("img");
-const IMG_NUMBER = 12; 
+const IMG_NUMBER = 9; 
 
 
 function genNumber(){
