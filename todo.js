@@ -8,7 +8,7 @@ const todayInfo = document.querySelector(".js-date-info-box"),
     dayColumn = calendarBox.getElementsByClassName("day-column"),
     previousMonth = calendarArea.querySelector(".pre-month-btn"),
     nextMonth = calendarArea.querySelector(".next-month-btn");
-    
+
 const dayObj = {
     0: "SUN",
     1: "MON",
@@ -92,7 +92,7 @@ function getTodayInfo(){
     const dateNow = makeDate.getDate();
     const monthNumNow = makeDate.getMonth(); //0~11
     const yearNow = makeDate.getFullYear();
-    day.innerText = dayObj[dayNumNow];     
+    day.innerText = dayObj[dayNumNow];
     date.innerText = dateNow;
     month.innerText = monthObj[monthNumNow];
     year.innerText = yearNow;
@@ -263,6 +263,7 @@ function moveToNextMonth(){
         
     }  
     firstDateColor(); 
+    updateLists();
 }
 function moveToPreviousMonth(){
     cleanCalendar();
@@ -277,7 +278,7 @@ function moveToPreviousMonth(){
         const monthNum = makePreviousMonth.getMonth(); //0~11
         const yearOfPre = makePreviousMonth.getFullYear();
     
-        day.innerText = dayObj[dayNum];     
+        day.innerText = dayObj[dayNum];
         date.innerText = dateOfPre;
         month.innerText = monthObj[monthNum];
         year.innerText = yearOfPre;
@@ -302,6 +303,7 @@ function moveToPreviousMonth(){
         checkDay(yearOfPre, monthNum)
     }
     firstDateColor();
+    updateLists();
 }
 
 function colorUpdate(anything){
