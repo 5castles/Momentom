@@ -34,7 +34,7 @@
     }
 }
 body{
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -72,38 +72,41 @@ h1, h2, span{
     display: none;
 }
 header form input{
-    margin-top: 130px;
+    margin-top: 80px;
     margin-bottom: 50px;
-    width: 600px;
+    width: 700px;
     height: 50px;
     background-color: rgba(255,255,255,0);
     color: beige;
+    opacity: .6;
     font-size: 60px;
     font-weight: 500;
     text-align: center;
     border: none;
-    border-bottom: 1px solid beige;
+    border-bottom: 3px solid beige;
     padding: 20px 0;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-} 
-section{    
+}
+section{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 120px;
     width: 100%;
     animation: fadeIn 0.3s linear;
 }
+
 section form input{
-    width: 500px;
-    height: 50px;
-    background-color: rgba(255, 226, 2, 0.1);
-    color: white;
-    font-size: 16px;
+    width: 20vw;
+    height: 45px;
+    background-color:  rgba(245,245,220, .15);
+    font-size: 15px;
     text-align: center;
-    border-radius: 20px;
+    color:beige;
+    opacity: .6;
     border: none;
+    border-radius: 5px;
     border-bottom: 1px solid beige;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
@@ -127,7 +130,7 @@ section form input{
     font-weight: 600;
     border-bottom: solid 1px rgba(255,255,255,0.8);
 }
-.js-todoList, 
+.js-todoList,
 .js-doneList{
     padding: 10px;
 }
@@ -314,7 +317,7 @@ footer{
     width: max-content;
     padding: 15px 60px;
     margin-right: 20px;
-    background-color: #226666;
+    background-color: teal;
     opacity: .8;
     border-radius: 40px 40px 0 40px;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
