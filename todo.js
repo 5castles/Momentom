@@ -463,13 +463,15 @@ function handleSwitch(event){
 function paintToDo(text, dateData){
     const li = document.createElement("li");
     const span = document.createElement("span");
-    const deleteBtn = document.createElement("button");
-    const finishBtn = document.createElement("button");
-    const newId = ToDos.length + 1;                    
+    const deleteBtn = document.createElement("span");
+    const finishBtn = document.createElement("span");
+    const newId = ToDos.length + 1;
     li.id = newId;
-    deleteBtn.innerHTML = "✖";
+    deleteBtn.innerHTML = "❌";
+    deleteBtn.classList.add("button");
     deleteBtn.addEventListener("click", handleClick);
-    finishBtn.innerHTML = "✔";
+    finishBtn.innerHTML = "✅";
+    finishBtn.classList.add("button");
     finishBtn.addEventListener("click", handleFinish)
     span.innerText = text;
     li.appendChild(span);
@@ -488,13 +490,15 @@ function paintToDo(text, dateData){
 function loadPaintToDo(text, dateData){
     const li = document.createElement("li");
     const span = document.createElement("span");
-    const deleteBtn = document.createElement("button");
-    const finishBtn = document.createElement("button");
-    const newId = ToDos.length + 1;                    
+    const deleteBtn = document.createElement("span");
+    const finishBtn = document.createElement("span");
+    const newId = ToDos.length + 1;
     li.id = newId;
-    deleteBtn.innerHTML = "✖";
+    deleteBtn.innerHTML = "❌";
+    deleteBtn.classList.add("button");
     deleteBtn.addEventListener("click", handleClick);
-    finishBtn.innerHTML = "✔";
+    finishBtn.innerHTML = "✅";
+    finishBtn.classList.add("button");
     finishBtn.addEventListener("click", handleFinish)
     span.innerText = text;
     li.appendChild(span);
@@ -516,13 +520,15 @@ function loadPaintToDo(text, dateData){
 function paintDone(text, dateData){
     const li = document.createElement("li");
     const span = document.createElement("span");
-    const deleteBtn = document.createElement("button");
-    const switchBtn = document.createElement("button");
+    const deleteBtn = document.createElement("span");
+    const switchBtn = document.createElement("span");
     const newId = Done.length + 1;
     li.id = newId;
-    deleteBtn.innerHTML = "✖";
+    deleteBtn.innerHTML = "❌";
+    deleteBtn.classList.add("button");
     deleteBtn.addEventListener("click", handleClick);
     switchBtn.innerHTML = "🔄";
+    switchBtn.classList.add("button");
     switchBtn.addEventListener("click", handleSwitch); 
     span.innerText = text;
     span.style.textDecorationLine = "line-through";
@@ -542,13 +548,15 @@ function paintDone(text, dateData){
 function loadPaintDone(text, dateData){
     const li = document.createElement("li");
     const span = document.createElement("span");
-    const deleteBtn = document.createElement("button");
-    const switchBtn = document.createElement("button");
+    const deleteBtn = document.createElement("span");
+    const switchBtn = document.createElement("span");
     const newId = Done.length + 1;
     li.id = newId;
-    deleteBtn.innerHTML = "✖";
+    deleteBtn.innerHTML = "❌";
+    deleteBtn.classList.add("button");
     deleteBtn.addEventListener("click", handleClick);
     switchBtn.innerHTML = "🔄";
+    switchBtn.classList.add("button");
     switchBtn.addEventListener("click", handleSwitch); 
     span.innerText = text;
     span.style.textDecorationLine = "line-through";

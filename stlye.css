@@ -11,7 +11,7 @@
     0% {
         opacity: 0;
     } 50% {
-        opacity: 1;
+        opacity: .8;
     } 100%{
         opacity: 0;
     }
@@ -142,15 +142,17 @@ li{
     margin-bottom: 10px;
     animation: fadeIn .3s linear;
 }
-li button{
-    cursor: pointer;
-}
+
 .js-todoList span, 
 .js-doneList span{
     margin-right: 10px;
 }
 .js-doneList span{
     color: rgba(216, 208, 208, 0.726);
+}
+li .button{
+    cursor: pointer;
+    margin-right: -2px;
 }
 ::placeholder{
     color:rgba(255,255,255,0.8);
@@ -172,22 +174,21 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 25%;
+    width: 23%;
     padding: 20px 0;
     margin-right: 20px;
-    background-color: #226666;
+    background-color: steelblue;
     opacity: .8;
-    border-radius: 50px 50px 0 50px;
+    border-radius: 10px;
     color:black;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
     position: absolute;
     bottom: 50px;
     animation: slidein .3s linear;
-    
 }
 .addToDoForOtherDay-box span:first-child{
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 17px;
     font-style: bold;
 }
 .addToDoForOtherDay-box span i{
@@ -312,12 +313,12 @@ footer{
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     right: px;
     width: max-content;
-    padding: 15px 60px;
+    padding: 10px 20px;
     margin-right: 20px;
-    background-color: teal;
+    background-color: steelblue;
     opacity: .8;
     border-radius: 40px 40px 0 40px;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -333,7 +334,7 @@ footer{
     display: none;
 }
 .popUpText{
-    color:#226666;
+    color: steelblue;
     opacity: .8;
     margin-top: 15px;
 }
