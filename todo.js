@@ -619,16 +619,16 @@ function handleSubmitForAddingToDoForOtherDay(event){
     event.preventDefault();
     const addForm = event.target;
     console.log(addForm)
-    const dateForAdding = addForm.querySelector("input");
+    const dateInput = addForm.querySelector("input");
     const addInput = addForm.querySelector("div input:first-child");
     const addInputValue = addInput.value;
 
-    //input type="date" 값 나눠서 로컬스토리지 날짜정보 순서에 맞게 조합
-    const yearForAdding = dateForAdding.value.slice(0, 4);
-    const monthNumForAdding = dateForAdding.value.slice(6, 7);
-    const dateNumForAdding = dateForAdding.value.slice(8, 10);
-    const addingDateInformation = `${parseInt(dateNumForAdding)}${monthObj[parseInt(monthNumForAdding)-1]}${yearForAdding}`;
-    const currentDate =`${date.innerText}${month.innerText}${year.innerText}` 
+    const addingDate = new Date(dateInput.value);
+    const yearForAdding = addingDate.getFullYear();
+    const monthNumForAdding = addingDate.getMonth();
+    const dateNumForAdding = addingDate.getDate();
+    const addingDateInformation = `${parseInt(dateNumForAdding)}${monthObj[parseInt(monthNumForAdding)]}${yearForAdding}`;
+    const currentDate =`${date.innerText}${month.innerText}${year.innerText}`
     const newId = AddingToDos.length +1;
     const addingToDoObj={
         text: addInputValue,
